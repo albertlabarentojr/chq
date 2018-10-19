@@ -5,6 +5,7 @@ namespace App\Commands;
 
 use App\Services\Mail;
 use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Formatter\OutputFormatterStyle;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -68,9 +69,12 @@ abstract class AbstractLogCommand extends Command
 
         $mail->send();
 
-        $output->writeln(self::$exitMessage);
-        $output->writeln(\sprintf('SUBJECT: %s', $subject));
-        $output->writeln(\sprintf('BODY: %s', $body));
+        $outputStyle = new OutputFormatterStyle('green');
+        $output->getFormatter()->setStyle('msg', $outputStyle);
+
+        $this->writeln(self::$exitMessage, $output);
+        $this->writeln('<msg>' . \sprintf('SUBJECT: %s', $subject) . '</>', $output);
+        $this->writeln(\sprintf('<msg>'. 'BODY: %s', $body) . '</>', $output);
     }
 
     /**
@@ -95,5 +99,10 @@ abstract class AbstractLogCommand extends Command
     private function getSubject(InputInterface $input): string
     {
         return \sprintf('%s %s', $this->getSubjectName(), $input->getOption('datetime'));
+    }
+
+    private function writeln(string $message, OutputInterface $output): void
+    {
+        $output->writeln( '<msg>'. $message . '</>');
     }
 }

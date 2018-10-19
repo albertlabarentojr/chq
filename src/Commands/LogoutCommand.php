@@ -13,13 +13,6 @@ class LogoutCommand extends AbstractLogCommand
     protected static $defaultName = 'logout';
 
     /**
-     * Login exit message.
-     *
-     * @var string
-     */
-    protected static $exitMessage = 'Hey! Lazy boy, your LOGOUT mail has been sent. BYE BYE!';
-
-    /**
      * Get log command name.
      *
      * @return string

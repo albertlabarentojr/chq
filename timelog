@@ -6,6 +6,8 @@ require __DIR__.'/vendor/autoload.php';
 use Symfony\Component\Console\Application;
 use Symfony\Component\Dotenv\Dotenv;
 
+\date_default_timezone_set( 'Asia/Manila' );
+
 $dotenv = new Dotenv();
 $dotenv->load(__DIR__.'/.env');
 
