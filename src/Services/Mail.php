@@ -63,7 +63,7 @@ class Mail
         $this->mail->Port = \getenv('MAIL_PORT');
 
         $this->mail->setFrom(\getenv('MAIL_FROM_NAME'), \getenv('MAIL_NAME'));
-        $this->mail->addAddress('albert.labarentojr@flexisourceit.com.au');
-        $this->mail->addCC('albertlabarento@yopmail.com');
+        $this->mail->addAddress(\getenv('MAIL_TO'));
+        $this->mail->addCC(\getenv('MAIL_TO_CC'));
     }
 }

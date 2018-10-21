@@ -73,8 +73,8 @@ abstract class AbstractLogCommand extends Command
         $output->getFormatter()->setStyle('msg', $outputStyle);
 
         $this->writeln(self::$exitMessage, $output);
-        $this->writeln('<msg>' . \sprintf('SUBJECT: %s', $subject) . '</>', $output);
-        $this->writeln(\sprintf('<msg>'. 'BODY: %s', $body) . '</>', $output);
+        $this->writeln(\sprintf('SUBJECT: %s', $subject), $output);
+        $this->writeln(\sprintf('<msg>'. 'BODY: %s', $body), $output);
     }
 
     /**
@@ -101,6 +101,14 @@ abstract class AbstractLogCommand extends Command
         return \sprintf('%s %s', $this->getSubjectName(), $input->getOption('datetime'));
     }
 
+    /**
+     * Formatted line output.
+     *
+     * @return void
+     *
+     * @param string $message
+     * @param \Symfony\Component\Console\Output\OutputInterface $output
+     */
     private function writeln(string $message, OutputInterface $output): void
     {
         $output->writeln( '<msg>'. $message . '</>');
