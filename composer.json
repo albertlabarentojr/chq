@@ -1,4 +1,16 @@
 {
+    "name": "anl/chq-timelog",
+    "type": "tool",
+    "description": "Only for lazy dummies",
+    "keywords": ["timelog","login", "logout"],
+    "license": "MIT",
+    "author" : [
+      {
+        "name": "Albert Labarento Jr",
+        "email": "albertlabarento@gmail.com",
+        "role": "Developer"
+      }
+    ],
     "require": {
         "php": ">=7.1",
         "symfony/console": "^4.1",
