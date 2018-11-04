@@ -74,7 +74,7 @@ abstract class AbstractLogCommand extends Command
 
         $this->writeln(self::$exitMessage, $output);
         $this->writeln(\sprintf('SUBJECT: %s', $subject), $output);
-        $this->writeln(\sprintf('<msg>'. 'BODY: %s', $body), $output);
+        $this->writeln(\sprintf('<msg>' . 'BODY: %s', $body), $output);
     }
 
     /**
@@ -111,6 +111,6 @@ abstract class AbstractLogCommand extends Command
      */
     private function writeln(string $message, OutputInterface $output): void
     {
-        $output->writeln( '<msg>'. $message . '</>');
+        $output->writeln('<msg>' . $message . '</>');
     }
 }

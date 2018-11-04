@@ -9,7 +9,16 @@ use Symfony\Component\Dotenv\Dotenv;
 \date_default_timezone_set( 'Asia/Manila' );
 
 $dotenv = new Dotenv();
-$dotenv->load(__DIR__ . '/../.env');
+
+$envPath = __DIR__ . '/../.env';
+
+if(\file_exists($envPath) === false){
+    $envFile = fopen($envPath, "w");
+    fclose($envFile);
+}
+
+$dotenv->load($envPath);
+
 
 $application = new Application();
 
