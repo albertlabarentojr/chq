@@ -63,17 +63,19 @@ class SetupCommand extends Command
                 $this->writeToEnv($configName, $answer);
             }
         }
+
+        $output->writeln('Done!');
     }
 
     /**
      * Write to environment file.
      *
      * @param string $configName
-     * @param string $answer
+     * @param mixed $answer
      *
      * @return void
      */
-    public function writeToEnv(string $configName, string $answer): void
+    public function writeToEnv(string $configName, $answer): void
     {
         $envPath = __DIR__ . '/../../.env';
         $contents = \file_get_contents($envPath);
