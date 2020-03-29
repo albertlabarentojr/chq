@@ -37,8 +37,8 @@ abstract class AbstractLogCommand extends Command
             'datetime',
             null,
             InputOption::VALUE_OPTIONAL,
-            'Time log with format YYYY-MM-DD HH:mm',
-            (new \DateTime())->format('Y-m-d H:i')
+            'Time log with format DD/MM/YY',
+            (new \DateTime())->format('d/m/y')
         );
 
         $this->addOption(
@@ -86,7 +86,7 @@ abstract class AbstractLogCommand extends Command
      */
     private function getBody(InputInterface $input): string
     {
-        return \sprintf('CHQ %s', $input->getOption('note'));
+        return ' ';
     }
 
     /**

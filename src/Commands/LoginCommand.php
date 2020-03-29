@@ -19,6 +19,6 @@ class LoginCommand extends AbstractLogCommand
      */
     public function getSubjectName(): string
     {
-        return 'LOGIN';
+        return 'Log in';
     }
 }
